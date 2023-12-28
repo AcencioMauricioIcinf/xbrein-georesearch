@@ -1,7 +1,7 @@
-const { Client } = require('pg');
+import { Pool } from 'pg';
 
 //instantiates a client to connect to the database, connection settings are passed in
-const client = new Client({
+const client = new Pool({
     user: '<your db username>',
     host: '<your endpoint>',
     database: '<your database name>',
@@ -10,7 +10,7 @@ const client = new Client({
 });
 
 //the lambda funtion code
-exports.handler = async (event) => {
+export async function handler(event) {
 
     let response = {};
     try {
@@ -31,7 +31,6 @@ exports.handler = async (event) => {
             body: JSON.stringify(err.message),
         }
     }
-    client.end();
 
     return response;
-};
+}
