@@ -12,16 +12,26 @@ const client = new Client({
 //the lambda funtion code
 exports.handler = async (event) => {
 
+    let response = {};
     try {
-
         await client.connect();
-        //your code here
-
+        const cat = event.category;
+        let query = "SELECT * FROM pois";
+        if (cat) query += `WHERE category_name = ${cat}`;
+        const result = await client.query(query);
+        response = {
+            statusCode: 200,
+            body: {
+                pois: result.rows,
+            },
+        }
     } catch (err) {
-        throw err;
-        //error message
+        response = {
+            statusCode: 500,
+            body: JSON.stringify(err.message),
+        }
     }
-
     client.end();
 
+    return response;
 };
