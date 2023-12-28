@@ -17,7 +17,7 @@ exports.handler = async (event) => {
         await client.connect();
         const cat = event.category;
         let query = "SELECT * FROM pois";
-        if (cat) query += `WHERE category_name = ${cat}`;
+        if (cat) query += ` WHERE category_name = '${cat}'`;
         const result = await client.query(query);
         response = {
             statusCode: 200,
