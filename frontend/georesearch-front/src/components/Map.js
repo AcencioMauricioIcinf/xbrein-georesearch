@@ -3,7 +3,7 @@ import { MapContainer, TileLayer } from "react-leaflet";
  
 export const Map = () => {
   const position = [-33.4266707, -70.6202899]; // [latitude, longitude]
-  const zoomLevel = 13;
+  const zoomLevel = 15;
  
   return (
     <MapContainer 
