@@ -16,7 +16,7 @@ export const SideMenu = props => {
         <div style={{maxHeight: '100vh', overflowY: 'scroll'}}>
         <Sidebar>
             <Menu>
-                <select className="form-select" aria-label="Default select example" onChange={changeCategory}>
+                <select className="form-select" aria-label="Default select example" defaultValue={''} onChange={changeCategory}>
                     {categories.map((cat, i) => (
                         <option key={i} value={cat}>{cat || '(Todo)'}</option>
                     ))}
