@@ -1,7 +1,8 @@
+import { useEffect, useState } from 'react';
 import { Map } from './components/Map';
+import { SideMenu } from './components/SideMenu';
 import './App.css';
 import { getPois } from './services/PoiService';
-import { useEffect, useState } from 'react';
 
 function App() {
   const [pois, setPois] = useState([]);
@@ -10,11 +11,13 @@ function App() {
       .then(setPois)
       .catch(err => {
         console.error(err.message);
-        setPois([]);
       });
   }, [])
   return (
-    <Map/>
+    <div style={{display: 'flex'}}>
+      <SideMenu items={pois}/>
+      <Map/>
+    </div>
   );
 }
 
