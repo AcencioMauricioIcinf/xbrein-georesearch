@@ -17,7 +17,7 @@ function App() {
   return (
     <div style={{display: 'flex'}}>
       <SideMenu items={pois} setCategory={setCategory}/>
-      <Map/>
+      <Map pois={pois}/>
     </div>
   );
 }
