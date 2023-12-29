@@ -6,16 +6,17 @@ import { getPois } from './services/PoiService';
 
 function App() {
   const [pois, setPois] = useState([]);
+  const [category, setCategory] = useState('');
   useEffect(() => {
-    getPois()
+    getPois(category)
       .then(setPois)
       .catch(err => {
         console.error(err.message);
       });
-  }, [])
+  }, [category])
   return (
     <div style={{display: 'flex'}}>
-      <SideMenu items={pois}/>
+      <SideMenu items={pois} setCategory={setCategory}/>
       <Map/>
     </div>
   );
