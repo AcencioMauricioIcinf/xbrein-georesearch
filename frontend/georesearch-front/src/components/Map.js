@@ -3,7 +3,7 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
  
 export const Map = props => {
   const position = [-33.4266707, -70.6202899]; // [latitude, longitude]
-  const zoomLevel = 15;
+  const zoomLevel = 16;
  
   return (
     <MapContainer 
